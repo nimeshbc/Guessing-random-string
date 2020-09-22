@@ -1,0 +1,37 @@
+import random
+    names = ["Nimesh", "uday", "dinesh"]
+    cond = True
+    while (cond is True):
+        secret_word = random.choice(names)
+        a = secret_word
+        n = 0
+        secret_word = secret_word.lower()
+        secret_word = secret_word.strip()
+        guess = input("Enter a random guess word")
+        guess = guess.lower()
+        guess = guess.strip()
+        while ((secret_word != guess) and (n <= 3)):
+            guess = input("""ERROR!!!!.... YOUR GUESS WAS WRONG!
+            ENTER ANOTHER WORD""")
+            guess = guess.lower()
+            guess = guess.strip()
+            n += 1
+        n = str(n+1)
+
+        if (secret_word == guess):
+            print("Hooray...!!!, Your guess was right")
+            print("You guessed it right in " + n + " attempt")
+            print("______________________________________")
+        elif ((secret_word != guess) and (int(n) > 3)):
+            print("Maximum attempts reached")
+            print("______________________________________")
+        x = input("Do you want to play an another game (YES/NO)")
+        x = x.lower()
+        x = x.strip()
+        if (x == "yes"):
+            cond = True
+        elif (x == "no"):
+            cond = False
+    if (x == "no"):
+        cond = False
+        print("bye bye... see you soon")
